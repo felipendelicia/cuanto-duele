@@ -69,10 +69,13 @@ function GuestDisplay(props: {
           nextID={props.guest.bills.length}
         />
       ) : null}
-      <ThinText onClick={() => setIsOpen(!isOpen)}>
+      <ThinText onClick={() => setIsOpen(!isOpen)} className="omit-on-print">
         {isOpen ? "Mostrar menos" : "Agregar gasto"}
       </ThinText>
-      <Button onClick={() => props.deleteGuest(props.guest.id)}>
+      <Button
+        onClick={() => props.deleteGuest(props.guest.id)}
+        className="omit-on-print"
+      >
         Eliminar pibe
       </Button>
     </Container>
@@ -102,8 +105,11 @@ const Wrapper = styled.div`
 
 const Columns = styled.div`
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr; /* Cambia a una columna en pantallas pequeñas */
+  }
 `;
 
 const Column = styled.div`
@@ -134,20 +140,24 @@ const NewBill = (props: {
     }
   };
   return (
-    <NewBillContainer>
+    <NewBillContainer className="omit-on-print">
       <Input
         placeholder="Descripcion"
         value={description}
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
           setDescription(e.target.value)
         }
+        className="omit-on-print"
       />
       <Input
         placeholder="Costo"
         value={cost}
         onChange={(e: ChangeEvent<HTMLInputElement>) => setCost(e.target.value)}
+        className="omit-on-print"
       />
-      <Button onClick={(e) => handleSubmit(e)}>Añadir</Button>
+      <Button onClick={(e) => handleSubmit(e)} className="omit-on-print">
+        Añadir
+      </Button>
     </NewBillContainer>
   );
 };

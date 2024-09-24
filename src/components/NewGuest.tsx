@@ -18,16 +18,18 @@ function NewGuest(props: {
   };
 
   return (
-    <Container>
-      <Input
-        value={name}
-        onChange={(e) => handleOnChange(e)}
-        placeholder="Nombre del pibe"
-      />
-      <Add type="submit" onClick={(e) => handleOnClick(e)}>
-        Añadir
-      </Add>
-    </Container>
+    <>
+      <Container>
+        <Input
+          value={name}
+          onChange={(e) => handleOnChange(e)}
+          placeholder="Nombre del pibe"
+        />
+        <Button type="submit" onClick={(e) => handleOnClick(e)}>
+          Añadir
+        </Button>
+      </Container>
+    </>
   );
 }
 
@@ -35,6 +37,7 @@ const Container = styled.form`
   display: flex;
   align-items: center;
   gap: 5px;
+  flex-wrap: wrap;
 `;
 
 const Input = styled.input`
@@ -42,9 +45,12 @@ const Input = styled.input`
   border-radius: 5px;
   font-size: 1.25em;
   padding: 5px 10px;
+  width: 50%;
+  min-width: 100px;
+  max-width: 300px;
 `;
 
-const Add = styled.button`
+const Button = styled.button`
   background-color: #fffef0;
   border-radius: 5px;
   font-size: 1.25em;

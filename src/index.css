@@ -17,3 +17,20 @@ button {
     outline: inherit;
     border: inherit;
 }
+
+/* Estilos generales */
+.print-container {
+    margin: 20px; /* Márgenes para el contenedor de impresión */
+}
+
+/* Estilos para la impresión */
+@media print {
+    .omit-on-print {
+        display: none; /* Ocultar este componente en la impresión */
+    }
+
+    /* Otros estilos específicos para la impresión */
+    .print-container {
+        margin: 40px; /* Puedes ajustar el margen según sea necesario */
+    }
+}
