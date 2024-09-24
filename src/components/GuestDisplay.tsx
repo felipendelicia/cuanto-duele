@@ -164,7 +164,7 @@ const NewBill = (props: {
 
 const NewBillContainer = styled.div`
   display: flex;
-  width: 60%;
+  flex-wrap: wrap;
   gap: 20px;
 `;
 
@@ -180,7 +180,6 @@ const Input = styled.input`
   border-radius: 5px;
   border-bottom: 1px solid #feecb3;
   padding: 5px 10px;
-  width: 90%;
 `;
 
 const ThinText = styled.p`
